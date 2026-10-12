@@ -278,7 +278,7 @@ Java 17 or later (tested on 17, 21 and 25). No other dependencies.
 ## Building
 
 ```sh
-mvn verify   # compile with -Werror, tests, coverage ≥ 90 %, javadoc and sources jars
+./mvnw verify   # compile with -Werror, tests, coverage ≥ 90 %, javadoc and sources jars
 ```
 
 ## Links

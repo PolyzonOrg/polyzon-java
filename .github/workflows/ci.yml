@@ -37,7 +37,8 @@ jobs:
       # Compiles with -Xlint:all -Werror, runs the tests, enforces 90 % line coverage and
       # builds the javadoc (doclint, warnings fail) and sources jars.
       - name: Verify
-        run: mvn -B -ntp verify
+        shell: bash
+        run: ./mvnw -B -ntp verify
       - name: Compile examples
         shell: bash
         run: javac -Xlint:all -Werror -cp target/classes -d target/examples examples/*.java
@@ -57,6 +58,6 @@ jobs:
       # The library has no runtime dependencies; the tree must hold only the project itself.
       - name: No runtime dependencies
         run: |
-          mvn -B -ntp dependency:tree -Dscope=runtime -DoutputFile=runtime-deps.txt
+          ./mvnw -B -ntp dependency:tree -Dscope=runtime -DoutputFile=runtime-deps.txt
           cat runtime-deps.txt
           test "$(grep -c . runtime-deps.txt)" -eq 1

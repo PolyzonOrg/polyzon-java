@@ -9,7 +9,7 @@ instead (see [SECURITY.md](SECURITY.md)).
 You need JDK 17 or later and Maven 3.6.3 or later.
 
 ```sh
-mvn verify
+./mvnw verify
 ```
 
 This compiles with `-Xlint:all -Werror`, runs the tests against a local mock server,
@@ -20,7 +20,7 @@ real API.
 Check the examples compile:
 
 ```sh
-mvn -q compile && javac -cp target/classes -d target/examples examples/*.java
+./mvnw -q compile && javac -cp target/classes -d target/examples examples/*.java
 ```
 
 ## Pull requests
