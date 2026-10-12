@@ -21,15 +21,18 @@ jobs:
           distribution: temurin
           java-version: '17'
           server-id: central
-          server-username: CENTRAL_USERNAME
-          server-password: CENTRAL_TOKEN
-          gpg-private-key: ${{ secrets.GPG_PRIVATE_KEY }}
-          gpg-passphrase: MAVEN_GPG_PASSPHRASE
+          server-username-env-var: CENTRAL_USERNAME
+          server-password-env-var: CENTRAL_TOKEN
       - name: Check that the tag matches the project version
         run: |
           version=$(sed -n 's:^  <version>\(.*\)</version>$:\1:p' pom.xml | head -n 1)
           echo "pom version: $version, tag: $GITHUB_REF_NAME"
           test "v$version" = "$GITHUB_REF_NAME"
+      - name: Import the signing key
+        # Not via setup-java: it imports silently, and a failure there shows only an exit code.
+        run: gpg --batch --import <<< "$GPG_PRIVATE_KEY"
+        env:
+          GPG_PRIVATE_KEY: ${{ secrets.GPG_PRIVATE_KEY }}
       - name: Build, sign and publish
         run: mvn -B -ntp -P release deploy
         env:
