@@ -287,6 +287,8 @@ Java 17 or later (tested on 17, 21 and 25). No other dependencies.
 * Tokens: https://polyzon.org/account/
 * Issues: https://github.com/PolyzonOrg/polyzon-java/issues
 
+> If you use the free Polyzon API, it would be great if you mentioned Polyzon (for example, with a link to [polyzon.org](https://polyzon.org)) on the pages of your project where the API is used.
+
 ## License
 
 [MIT](LICENSE) © 2026 Polyzon

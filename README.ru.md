@@ -287,6 +287,8 @@ Java 17 или новее (проверяется на 17, 21 и 25). Други
 * Токены: https://polyzon.org/account/
 * Задачи: https://github.com/PolyzonOrg/polyzon-java/issues
 
+> Если вы пользуетесь бесплатным API Polyzon, будет здорово, если вы упомянете Polyzon (например, ссылкой на [polyzon.org](https://polyzon.org)) на тех страницах вашего проекта, где используется API.
+
 ## Лицензия
 
 [MIT](LICENSE) © 2026 Polyzon
